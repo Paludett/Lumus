@@ -70,7 +70,7 @@ Use os exemplos como referência:
 | POST | /chat | Chat com a IA |
 | GET | /docs | Documetancao da Api |
 
-## Screenshot
+## Screenshots
 
 ### Tela 1 - Chat com a IA
 
