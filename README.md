@@ -7,12 +7,9 @@ O projeto combina um chat com Inteligência Artificial focado em vendas e uma p�
 Projeto realizado em 22 de novembro de 2025.
 
 ## Equipe
-
-# Desenvolvedores
-
 - [Lorenzo (GitHub)](https://github.com/Paludett) - Dev/Negócios 
 - [Murilo (GitHub)](https://github.com/Muller-SR) - Dev
-- [Heitor (LinkedIn)](https://www.linkedin.com/in /heitor-bettega-1bb078264/) - Negócios
+- [Heitor (LinkedIn)](https://www.linkedin.com/in/heitor-bettega-1bb078264/) - Negócios
 - [Richard (LinkedIn)](https://www.linkedin.com/in/richard-matge-994838382/) - Negócios / Pitch 
 
 ## Tech Stack
@@ -75,11 +72,18 @@ Use os exemplos como referência:
 
 ## Screenshot
 
-<p align="center">
-	<img src="./docs/screenshots/tela-1-chat.png" alt="Tela 1 - Chat com a IA" width="45%" />
-	<img src="./docs/screenshots/tela-2-cursos.png" alt="Tela 2 - Cursos" width="45%" />
-</p>
-<p align="center">
-	<img src="./docs/screenshots/tela-3-curso-detalhes.png" alt="Tela 3 - Detalhes de um curso" width="45%" />
-	<img src="./docs/screenshots/tela-4-resposta-chat.png" alt="Tela 4 - Resposta de um Chat com a IA" width="45%" />
-</p>
+### Tela 1 - Chat com a IA
+
+<img src="./docs/screenshots/tela-1-chat.png" alt="Tela 1 - Chat com a IA" width="75%" />
+
+### Tela 2 - Página de cursos
+
+<img src="./docs/screenshots/tela-2-cursos.png" alt="Tela 2 - Cursos" width="75%" />
+
+### Tela 3 - Detalhes de um curso
+
+<img src="./docs/screenshots/tela-3-curso-detalhes.png" alt="Tela 3 - Detalhes de um curso" width="75%" />
+
+### Tela 4 - Resposta de um Chat com a IA 
+
+<img src="./docs/screenshots/tela-4-resposta-chat.png" alt="Tela 4 - Resposta de um Chat com a IA" width="75%" />
