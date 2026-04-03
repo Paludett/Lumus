@@ -74,4 +74,12 @@ Use os exemplos como referência:
 | GET | /docs | Documetancao da Api |
 
 ## Screenshot
-Add a screenshot here
+
+<p align="center">
+	<img src="./docs/screenshots/tela-1-chat.png" alt="Tela 1 - Chat com a IA" width="45%" />
+	<img src="./docs/screenshots/tela-2-cursos.png" alt="Tela 2 - Cursos" width="45%" />
+</p>
+<p align="center">
+	<img src="./docs/screenshots/tela-3-curso-detalhes.png" alt="Tela 3 - Detalhes de um curso" width="45%" />
+	<img src="./docs/screenshots/tela-4-resposta-chat.png" alt="Tela 4 - Resposta de um Chat com a IA" width="45%" />
+</p>
