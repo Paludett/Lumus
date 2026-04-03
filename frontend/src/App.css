@@ -1,0 +1,451 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: #f0f2f5;
+  font-family: 'Poppins', sans-serif;
+  /* remove centralização para permitir o container ocupar toda a tela */
+  display: block;
+  min-height: 100vh;
+}
+
+.container {
+  /* ocupa toda a viewport em qualquer dispositivo */
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  max-width: none;
+  max-height: none;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 0 20px rgba(0,0,0,0.05);
+  overflow: hidden;
+
+  /* se preferir bordas arredondadas em tela cheia, ajuste este valor */
+  border-radius: 0;
+}
+
+/* --- Header --- */
+.header {
+  /* Gradiente baseado na sua imagem (Amarelo -> Rosa Suave) */
+  background: linear-gradient(90deg, #EEDD5B 0%, #f1ecec 100%);
+  padding: 15px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 80px;
+
+  /* removido ajuste de borda superior para combinar com container full-screen */
+  z-index: 10;
+}
+
+.icon-button {
+  background: none;
+  border: none;
+  color: #4a4a4a;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 5;
+}
+
+.logo-image {
+  max-height: 90px; /* Controla a altura do logo */
+  max-width: 270px;
+  object-fit: contain;
+}
+
+/* --- Chat Box --- */
+.chat-box {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background-color: #fff;
+}
+
+.message-wrapper {
+  display: flex;
+  gap: 10px;
+  align-items: flex-end; /* Alinha avatar com o fundo da mensagem */
+}
+
+.message-wrapper.user {
+  justify-content: flex-end;
+}
+
+.message-wrapper.ai {
+  justify-content: flex-start;
+}
+
+/* Ícone do Robô */
+.avatar-circle {
+  width: 35px;
+  height: 35px;
+  background-color: #f7e97e; /* Amarelo do tema */
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #5a4a00;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+/* Balões de Mensagem - mais arredondados */
+.message {
+  padding: 12px 16px;
+  border-radius: 28px;
+  font-size: 14px;
+  line-height: 1.5;
+  max-width: 80%;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+  position: relative;
+}
+
+.message.ai {
+  background-color: #f2f2f2; /* Cinza claro */
+  color: #333;
+  border: 1px solid #e5e5e5;
+}
+
+.message.user {
+  background-color: #f5e674; /* Amarelo Suave */
+  color: #3e3e3e;
+  font-weight: 500;
+}
+
+.typing {
+  font-style: italic;
+  color: #888;
+  background: none;
+  border: none;
+  box-shadow: none;
+  padding-left: 12px;
+}
+
+/* --- Input Area --- */
+.input-area {
+  padding: 15px 20px 25px 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: #fff;
+  border-top: 1px solid #f0f0f0;
+
+  /* input area arredondada */
+  border-radius: 30px;
+  margin: 12px;
+}
+
+.input-area input {
+  flex: 1;
+  padding: 15px 20px;
+  border-radius: 24px;
+  border: none;
+  background-color: #f5f5f5;
+  font-size: 15px;
+  outline: none;
+  color: #333;
+}
+
+.input-area input::placeholder {
+  color: #aaa;
+}
+
+/* Botão de Enviar Redondo e Amarelo */
+.send-btn {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #EEDD5B 0%, #dcc62e 100%);
+  border: none;
+  color: rgba(59, 59, 45, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.2s;
+  box-shadow: 0 4px 10px rgba(238, 221, 91, 0.4);
+}
+
+.send-btn:hover:not(:disabled) {
+  transform: scale(1.05);
+}
+
+.send-btn:disabled {
+  background: linear-gradient(135deg, #EEDD5B 0%, #f0e196 100%);
+  cursor: default;
+  box-shadow: none;
+}
+
+/* --- Ajustes para o React Markdown --- */
+/* Isso garante que o texto formatado (negrito, listas) fique bonito dentro dos balões */
+
+.message p {
+  margin: 0 0 5px 0; /* Espaço pequeno entre parágrafos */
+}
+
+.message p:last-child {
+  margin-bottom: 0; /* Remove margem do último item */
+}
+
+.message ul, .message ol {
+  margin: 5px 0;
+  padding-left: 20px; /* Recuo para listas */
+}
+
+.message li {
+  margin-bottom: 2px;
+}
+
+.message strong {
+  font-weight: 600; /* Garante que o negrito apareça bem */
+}
+
+.message code {
+  background-color: rgba(0,0,0,0.08);
+  padding: 2px 4px;
+  border-radius: 4px;
+  font-family: monospace;
+  font-size: 0.9em;
+}
+
+.message pre {
+  background-color: rgba(0,0,0,0.05);
+  padding: 8px;
+  border-radius: 8px;
+  overflow-x: auto;
+}
+/* --- Estilos da Tela de Cursos --- */
+
+.courses-list {
+  padding: 20px;
+  padding-bottom: 80px; /* Espaço para não cobrir o conteúdo com botão flutuante se houver */
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.course-card {
+  background-color: #fff;
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  border: 1px solid #f0f0f0;
+  transition: transform 0.2s;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+  font: inherit;
+  display: block;
+}
+
+.course-card:hover {
+  transform: translateY(-3px);
+  border-color: #EEDD5B;
+}
+
+.course-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 10px;
+}
+
+.course-tag {
+  background-color: #fef9d8; /* Amarelo bem claro */
+  color: #8b6d00;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.course-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #333;
+  margin: 0 0 8px 0;
+}
+
+.course-desc {
+  font-size: 13px;
+  color: #666;
+  line-height: 1.5;
+  margin: 0 0 15px 0;
+}
+
+.course-footer {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  color: #999;
+  font-size: 12px;
+  border-top: 1px solid #f9f9f9;
+  padding-top: 12px;
+}
+
+.footer-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+/* Botão Flutuante para ir ao Chat (opcional, estilo WhatsApp) */
+.fab-chat {
+  position: absolute;
+  bottom: 25px;
+  right: 25px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #EEDD5B 0%, #dcc62e 100%);
+  color: white;
+  border: none;
+  box-shadow: 0 4px 15px rgba(238, 221, 91, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 20;
+  transition: transform 0.2s;
+}
+
+.fab-chat:hover {
+  transform: scale(1.1);
+}
+
+.course-hero {
+  background-color: #fff;
+  padding: 25px 20px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.hero-tag {
+  display: inline-block;
+  background-color: #fef9d8;
+  color: #8b6d00;
+  padding: 5px 12px;
+  border-radius: 15px;
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.hero-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: #333;
+  margin: 0 0 10px 0;
+  line-height: 1.2;
+}
+
+.hero-stats {
+  display: flex;
+  gap: 20px;
+  font-size: 13px;
+  color: #666;
+}
+
+.hero-stat-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Lista de Seções do Curso */
+.sections-list {
+  padding: 20px;
+  overflow-y: auto;
+  flex: 1; /* Ocupa o espaço restante */
+  background-color: #fbfbfb; /* Fundo levemente diferente */
+}
+
+.section-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #999;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.section-card {
+  background-color: #fff;
+  border-radius: 15px;
+  padding: 20px;
+  margin-bottom: 15px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+  border: 1px solid #eee;
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.section-number {
+  width: 28px;
+  height: 28px;
+  background-color: #EEDD5B;
+  color: #5a4a00;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.section-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+}
+
+.section-text {
+  font-size: 14px;
+  color: #555;
+  line-height: 1.6;
+  margin: 0;
+  padding-left: 40px; /* Alinha com o título, pulando a bolinha */
+}
+
+/* Botão de ação no final */
+.action-button {
+  margin-top: 10px;
+  width: 100%;
+  padding: 15px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
